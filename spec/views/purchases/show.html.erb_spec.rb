@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "purchases/show", type: :view do
+RSpec.describe 'purchases/show', type: :view do
   before(:each) do
     @purchase = assign(:purchase, Purchase.create!(
-      amount: 2.5,
-      category: nil,
-      author: nil
-    ))
+                                    amount: 2.5,
+                                    category: nil,
+                                    author: nil
+                                  ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/2.5/)
     expect(rendered).to match(//)

@@ -1,8 +1,5 @@
 class SplashesController < ApplicationController
   def index
-    if current_user
-      redirect_to :categories
-    end
-
+    redirect_to :categories if current_user
   end
 end
