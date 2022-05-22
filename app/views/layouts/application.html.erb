@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+     <div class="container mt-2">
+      <%= render partial: "shared/flash" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
