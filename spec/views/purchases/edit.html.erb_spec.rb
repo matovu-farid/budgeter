@@ -5,7 +5,7 @@ RSpec.describe "purchases/edit", type: :view do
     @purchase = assign(:purchase, Purchase.create!(
       amount: 1.5,
       category: nil,
-      user: nil
+      author: nil
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "purchases/edit", type: :view do
 
       assert_select "input[name=?]", "purchase[category_id]"
 
-      assert_select "input[name=?]", "purchase[user_id]"
+      assert_select "input[name=?]", "purchase[author_id]"
     end
   end
 end

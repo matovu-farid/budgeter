@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  belongs_to :author, class_name: 'User'
+  belongs_to :user
   has_many :purchases
   validates :name, presence: true
   validates :icon, presence: true

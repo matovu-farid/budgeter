@@ -6,12 +6,12 @@ RSpec.describe "purchases/index", type: :view do
       Purchase.create!(
         amount: 2.5,
         category: nil,
-        user: nil
+        author: nil
       ),
       Purchase.create!(
         amount: 2.5,
         category: nil,
-        user: nil
+        author: nil
       )
     ])
   end
