@@ -1,16 +1,27 @@
 <div id="<%= dom_id category %>">
   <div class="card my-1">
-    <%= image_tag category.icon, alt: category.name %>
-    <div class="card-body">
-      <div class="card-text row">
-        <div class="col">
-          <h5 class="card-title">
-            <%=category.name%>
-          </h5>
+    <div class="container py-1 px-1">
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag category.icon, alt: category.name, style: 'width: 100px; height: 100px;' %>
         </div>
-        <p><%=category.total%></p>
+          <div class="card-body col-6">
+            <div class="card-text container">
+            <div class="row">
+                <div class="col-10 text-secondary">
+                  <h5 class="card-title">
+                    <%=category.name%>
+                  </h5>
+                  <h6><%=category.updated_at.strftime("%d %b %Y")%></h6>
+                </div>
+                <div class="col-2">
+                  <p><%=category.total%></p>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
 </div>
