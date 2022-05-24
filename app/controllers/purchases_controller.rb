@@ -13,6 +13,8 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
+    @users = User.pluck(:name,:id)
+    @categories = Category.pluck(:name,:id)
   end
 
   # GET /purchases/1/edit
@@ -21,12 +23,17 @@ class PurchasesController < ApplicationController
   # POST /purchases or /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-
+    p @purchase
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to purchase_url(@purchase), notice: 'Purchase was successfully created.' }
+    
+
+        format.html { redirect_to category_purchases_url(@purchase), notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
+    
       else
+      
+
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
