@@ -6,6 +6,7 @@ class PurchasesController < ApplicationController
   def index
 
     @purchases = Purchase.where(author: current_user,category_id:params[:category_id])
+    
   end
 
   # GET /purchases/1 or /purchases/1.json

@@ -1,3 +1,11 @@
+<div class=" b w-100 d-flex bg-primary text-white py-3 px-2">
+    <%= link_to  categories_path(category_id: params[:category_id]) do %>
+      <i class="fa fa-arrow-left text-white" aria-hidden="true"></i>
+    <%end%>
+  <div class="text-center flex-grow-1">
+    <p class="mb-0">Purchases</p>
+  </div>
+</div>
 <div id="purchases", class="container w-100 d-flex flex-column">
   <%if @purchases.empty? %>
     <p>
