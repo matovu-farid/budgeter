@@ -1,17 +1,16 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= category.user_id %>
-  </p>
+  <div class="card my-1">
+    <%= image_tag category.icon, alt: category.name %>
+    <div class="card-body">
+      <div class="card-text row">
+        <div class="col">
+          <h5 class="card-title">
+            <%=category.name%>
+          </h5>
+        </div>
+        <p><%=category.amount%></p>
+      </div>
+    </div>
+  </div>
 
 </div>
