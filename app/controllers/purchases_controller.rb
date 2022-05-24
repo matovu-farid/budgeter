@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
   # GET /purchases or /purchases.json
   def index
 
-    @purchases = Purchase.where(author: current_user,category_id:params[:category_id])
+    @purchases = Purchase.where(author: current_user,category_id:params[:category_id]).order(updated_at: :desc)
 
   end
 
@@ -27,17 +27,9 @@ class PurchasesController < ApplicationController
   
     respond_to do |format|
       if @purchase.save 
-      p '........................................................'
-      p 'Success'
-      p '........................................................'
-
         format.html { redirect_to category_purchases_url(category_id:@purchase.category_id), notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
-    
       else
-        p '........................................................'
-        p 'Failed'
-        p '........................................................'
         set_users_categories
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
