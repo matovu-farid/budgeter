@@ -9,9 +9,8 @@
       <p class="mb-0">Purchase</p>
       <%= f.submit "Submit", class:'btn text-white',data:{turbo:false} %> 
     </div>
-      <% if purchase.errors.any? %>
-        <p class='text-danger'><%=purchase.errors.full_messages%></p>
-      <% end %>
+          <%=render 'error_messages', model: purchase %>
+
         <%= f.text_field :name,placeholder: 'name', class: 'form-control rounded-0' %>
         <%= f.text_field :amount,placeholder: 'amount', class: 'form-control rounded-0' %>
         <%= f.select  :author_id, @users, {},{class:'form-select'}%>

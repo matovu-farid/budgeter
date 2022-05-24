@@ -8,6 +8,7 @@
       <p class="mb-0">Category</p>
       <%= f.submit "Submit", class:'btn text-white',data:{turbo:false} %> 
     </div>
+    <%=render 'error_messages', model: category %>
 
   
     <%= f.text_field :name,placeholder: 'name', class: 'form-control rounded-0' %>
