@@ -1,10 +1,13 @@
+<div class=" b w-100 d-flex bg-primary text-white py-3 px-2">
+    <%= link_to  category_purchases_path do %>
+      <i class="fa fa-arrow-left text-white" aria-hidden="true"></i>
+    <%end%>
+    <div class="text-center flex-grow-1">
+      <p class="mb-0">Purchases Details</p>
+    </div>
+</div>
 <p style="color: green"><%= notice %></p>
 
-<%= render @purchase %>
+<%= render 'purchase_details', purchase: @purchase, category: @purchase.category %>
 
-<div>
-  <%= link_to "Edit this purchase", edit_purchase_path(@purchase) %> |
-  <%= link_to "Back to purchases", purchases_path %>
 
-  <%= button_to "Destroy this purchase", @purchase, method: :delete %>
-</div>
