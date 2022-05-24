@@ -4,7 +4,8 @@ class PurchasesController < ApplicationController
 
   # GET /purchases or /purchases.json
   def index
-    @purchases = Purchase.where(author: current_user)
+
+    @purchases = Purchase.where(author: current_user,category_id:params[:category_id])
   end
 
   # GET /purchases/1 or /purchases/1.json
@@ -28,7 +29,7 @@ class PurchasesController < ApplicationController
       if @purchase.save
     
 
-        format.html { redirect_to category_purchases_url(@purchase), notice: 'Purchase was successfully created.' }
+        format.html { redirect_to category_purchases_url(category_id:@purchase.category_id), notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
     
       else
