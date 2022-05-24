@@ -4,9 +4,8 @@ class PurchasesController < ApplicationController
 
   # GET /purchases or /purchases.json
   def index
-
     @purchases = Purchase.where(author: current_user,category_id:params[:category_id]).order(updated_at: :desc)
-
+    @total = @purchases.sum(:amount)
   end
 
   # GET /purchases/1 or /purchases/1.json

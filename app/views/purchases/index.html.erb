@@ -6,12 +6,17 @@
     <p class="mb-0">Purchases</p>
   </div>
 </div>
+<div class="d-flex justify-content-between shadow py-3 px-2">
+    <span class='text-secondary'>Total</span>
+    <span>$<%=@total%></span>
+  </div>
 <div id="purchases", class="container w-100 d-flex flex-column">
   <%if @purchases.empty? %>
     <p>
       You can add purchases by clicking the button
     </p>
   <%end%>
+
   <% @purchases.each do |purchase| %>
     <%= link_to category_purchases_path(purchase),class: 'text-decoration-none text-body' do %>
       <%= render 'purchase',purchase:purchase,category:purchase.category %>
