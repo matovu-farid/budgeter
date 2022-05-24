@@ -1,32 +1,21 @@
-<%= form_with(model: category) do |form| %>
-  <% if category.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with(model: category) do |f| %>
+ 
+    <div class=" b w-100 d-flex justify-content-between align-items-center bg-primary text-white">
+      <%= link_to  :back  do %>
+        <i class="fa fa-arrow-left text-white" aria-hidden="true"></i>
+      <%end%>
+    
+      <p class="mb-0">Category</p>
+      <%= f.submit "Submit", class:'btn text-white',data:{turbo:false} %> 
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+  
+    <%= f.text_field :name,placeholder: 'name', class: 'form-control rounded-0' %>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
-  </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+ 
+    <%= f.text_field :icon,placeholder: 'icon url', class: 'form-control rounded-0' %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+
+
 <% end %>

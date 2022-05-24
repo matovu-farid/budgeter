@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
-
-<div id="categories", class="container">
+<div id="categories", class="container w-100 d-flex flex-column">
+  <%if @categories.empty? %>
+    <p>
+      You can add categories by clicking the button
+    </p>
+  <%end%>
   <% @categories.each do |category| %>
-    <%= link_tocategory do %>
+    <%= link_to category do %>
       <%= render category %>
     <%end%>
   <% end %>
   <%= link_to "Add Category", new_category_path, class: 'btn btn-success rounded-0 text-white' %>
 </div>
 
-<%= link_to "New category", new_category_path %>
