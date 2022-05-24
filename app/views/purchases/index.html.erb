@@ -6,7 +6,7 @@
   <%end%>
   <% @purchases.each do |purchase| %>
     <%= link_to category_purchases_path(purchase),class: 'text-decoration-none text-body' do %>
-      <%= render purchase %>
+      <%= render 'purchase',purchase:purchase,category:purchase.category %>
     <%end%>
   <% end %>
   <%= link_to "Add purchase", new_category_purchase_path, class: 'btn btn-success rounded-0 text-white' %>
