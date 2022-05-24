@@ -5,7 +5,7 @@
     </p>
   <%end%>
   <% @purchases.each do |purchase| %>
-    <%= link_to purchase_purchases_path(purchase),class: 'text-decoration-none text-body' do %>
+    <%= link_to category_purchases_path(purchase),class: 'text-decoration-none text-body' do %>
       <%= render purchase %>
     <%end%>
   <% end %>

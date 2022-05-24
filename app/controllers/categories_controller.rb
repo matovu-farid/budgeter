@@ -1,10 +1,16 @@
+
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.where(user:current_user)
+     categories = Category.includes(:purchases).all
+    @categories= categories.map do |category|
+      
+      category.total = category.purchases.where(author: current_user).sum(:amount)
+      category
+    end
   end
 
   # GET /categories/1 or /categories/1.json
@@ -69,3 +75,4 @@ class CategoriesController < ApplicationController
      hash = params.require(:category).permit(:name, :icon)
   end
 end
+
