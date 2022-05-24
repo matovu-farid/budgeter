@@ -66,8 +66,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
   gem 'cancancan'
   gem 'devise'
 
   gem 'rubocop', '~> 1.29'
-end
+  gem 'counter_culture', '~> 2.0'

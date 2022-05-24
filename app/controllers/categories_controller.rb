@@ -4,11 +4,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.include?(:purchases).all
-    @categories.map do |category|
-      category.amount = category.purchaces.sum(:amount)
-      category
-    end
+    @categories = Category.all
   end
 
   # GET /categories/1 or /categories/1.json
