@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :splashes
-  resources :purchases
-  resources :categories
+  resources :categories do
+    resources :purchases
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }

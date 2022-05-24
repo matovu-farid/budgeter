@@ -6,7 +6,7 @@
     </p>
   <%end%>
   <% @categories.each do |category| %>
-    <%= link_to category,class: 'text-decoration-none text-body' do %>
+    <%= link_to category_purchases_path(category),class: 'text-decoration-none text-body' do %>
       <%= render category %>
     <%end%>
   <% end %>

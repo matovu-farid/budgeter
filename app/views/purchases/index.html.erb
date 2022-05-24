@@ -1,14 +1,13 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Purchases</h1>
-
-<div id="purchases">
-  <% @purchases.each do |purchase| %>
-    <%= render purchase %>
+<div id="purchases", class="container w-100 d-flex flex-column">
+  <%if @purchases.empty? %>
     <p>
-      <%= link_to "Show this purchase", purchase %>
+      You can add purchases by clicking the button
     </p>
+  <%end%>
+  <% @purchases.each do |purchase| %>
+    <%= link_to purchase_purchases_path(purchase),class: 'text-decoration-none text-body' do %>
+      <%= render purchase %>
+    <%end%>
   <% end %>
+  <%= link_to "Add purchase", new_category_purchase_path, class: 'btn btn-success rounded-0 text-white' %>
 </div>
-
-<%= link_to "New purchase", new_purchase_path %>

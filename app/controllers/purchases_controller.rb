@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases or /purchases.json
   def index
-    @purchases = Purchase.all
+    @purchases = Purchase.where(author: current_user)
   end
 
   # GET /purchases/1 or /purchases/1.json
