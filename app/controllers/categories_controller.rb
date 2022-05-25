@@ -1,13 +1,11 @@
-
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories or /categories.json
   def index
-     categories = Category.includes(:purchases).all
-    @categories= categories.map do |category|
-      
+    categories = Category.includes(:purchases).all
+    @categories = categories.map do |category|
       category.total = category.purchases.where(author: current_user).sum(:amount)
       category
     end
@@ -71,8 +69,6 @@ class CategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def category_params
-
-     hash = params.require(:category).permit(:name, :icon)
+    params.require(:category).permit(:name, :icon)
   end
 end
-
