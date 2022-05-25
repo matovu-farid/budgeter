@@ -23,7 +23,7 @@ class PurchasesController < ApplicationController
   # POST /purchases or /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-
+    @purchase.author = current_user
     respond_to do |format|
       if @purchase.save
         format.html do
