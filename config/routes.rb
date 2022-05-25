@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :splashes
+  resources :splashes, only: [:index]
   resources :categories do
     resources :purchases
   end
