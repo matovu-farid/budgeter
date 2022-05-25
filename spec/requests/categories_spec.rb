@@ -1,22 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe '/categories', type: :request do
-  # This should return the minimal set of attributes required to create a valid
-  # Category. As you add validations to Category, be sure to
-  # adjust the attributes here as well.
+
   let(:test_user) { create :user }
   before { sign_in test_user }
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
-  end
+  let(:valid_category){build :category,user: test_user}
+  let(:invalid_category){build :category, name: nil}
+  let(:valid_attributes) {valid_category.attributes}
 
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
+  let(:invalid_attributes) {invalid_category.attributes}
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      Category.create! valid_attributes
       get categories_url
       expect(response).to be_successful
     end
@@ -24,8 +19,8 @@ RSpec.describe '/categories', type: :request do
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      category = Category.create! valid_attributes
-      get category_url(category)
+      valid_category.save
+      get category_url(valid_category)
       expect(response).to be_successful
     end
   end
@@ -39,8 +34,8 @@ RSpec.describe '/categories', type: :request do
 
   describe 'GET /edit' do
     it 'renders a successful response' do
-      category = Category.create! valid_attributes
-      get edit_category_url(category)
+      valid_category.save
+      get edit_category_url(valid_category)
       expect(response).to be_successful
     end
   end
@@ -53,9 +48,9 @@ RSpec.describe '/categories', type: :request do
         end.to change(Category, :count).by(1)
       end
 
-      it 'redirects to the created category' do
+      it 'redirects to the categories url on save' do
         post categories_url, params: { category: valid_attributes }
-        expect(response).to redirect_to(category_url(Category.last))
+        expect(response).to redirect_to(categories_url)
       end
     end
 
@@ -68,53 +63,9 @@ RSpec.describe '/categories', type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post categories_url, params: { category: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested category' do
-        category = Category.create! valid_attributes
-        patch category_url(category), params: { category: new_attributes }
-        category.reload
-        skip('Add assertions for updated state')
-      end
-
-      it 'redirects to the category' do
-        category = Category.create! valid_attributes
-        patch category_url(category), params: { category: new_attributes }
-        category.reload
-        expect(response).to redirect_to(category_url(category))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        category = Category.create! valid_attributes
-        patch category_url(category), params: { category: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
-  end
-
-  describe 'DELETE /destroy' do
-    it 'destroys the requested category' do
-      category = Category.create! valid_attributes
-      expect do
-        delete category_url(category)
-      end.to change(Category, :count).by(-1)
-    end
-
-    it 'redirects to the categories list' do
-      category = Category.create! valid_attributes
-      delete category_url(category)
-      expect(response).to redirect_to(categories_url)
-    end
-  end
 end
