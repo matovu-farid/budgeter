@@ -1,23 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe 'purchases/new', type: :view do
-  before(:each) do
-    assign(:purchase, Purchase.new(
-                        amount: 1.5,
-                        category: nil,
-                        author: nil
-                      ))
+RSpec.describe 'categories/new', type: :system do
+  let(:test_user) { create :user }
+
+  before do
+    driven_by(:rack_test)
+    sign_in test_user
+    visit new_category_url
   end
 
-  it 'renders new purchase form' do
-    render
-
-    assert_select 'form[action=?][method=?]', purchases_path, 'post' do
-      assert_select 'input[name=?]', 'purchase[amount]'
-
-      assert_select 'input[name=?]', 'purchase[category_id]'
-
-      assert_select 'input[name=?]', 'purchase[author_id]'
-    end
+  it 'renders the New category title' do
+    expect(page).to have_content('New Category')
+  end
+  it 'renders a link back to categories page' do
+    expect(page).to have_css('#back_to_home')
+  end
+  it 'Should lead bach to categories page' do
+    page.find('#back_to_home').click
+    expect(current_path).to eql(categories_path)
   end
 end

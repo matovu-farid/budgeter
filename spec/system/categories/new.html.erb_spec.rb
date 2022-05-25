@@ -15,7 +15,7 @@ RSpec.describe 'categories/new', type: :system do
   it 'renders a link back to categories page' do
     expect(page).to have_css('#back_to_home')
   end
-  it 'Should lead bach to categories page' do
+  it 'Should lead back to categories page' do
     page.find('#back_to_home').click
     expect(current_path).to eql(categories_path)
   end
