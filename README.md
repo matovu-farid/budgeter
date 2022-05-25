@@ -1,24 +1,51 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+The budgeter is created with ruby on rails and allows logged in users to create view how their money is spent on various categories of expenses.
 
-* Ruby version
 
-* System dependencies
+![screenshot](./screenshot2.png)
+![screenshot](./screenshot1.png)
 
-* Configuration
+## Built With
 
-* Database creation
+- Ruby
+- Ruby on Rails
 
-* Database initialization
+## Getting Started
 
-* How to run the test suite
+To get the content of this project locally you need to run this command in your terminal:
+``` bash
+git clone your https://github.com/matovu-farid/budgeter.git
+cd budgeter
+bundle install
+rails s
+```
+## Tests
+To run the tests, navigate to the root directory of this app and run
+```ruby
+rspec spec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Authors
 
-* Deployment instructions
+👤 **Matovu Farid Nkoba**
 
-* ...
+- GitHub: [@matovu-farid](https://github.com/matovu-farid)
+- Twitter: [@matovu100](https://twitter.com/matovu100)
+- LinkedIn: [matovu-farid](https://www.linkedin.com/in/matovu-farid-48b80257)
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to Microverse
+
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
