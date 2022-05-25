@@ -4,10 +4,13 @@
 
 The budgeter is created with ruby on rails and allows logged in users to create view how their money is spent on various categories of expenses.
 
-
+## Screenshots
 ![screenshot](./screenshot2.png)
 ![screenshot](./screenshot1.png)
 
+## Demo video
+
+[![screenshot](https://cdn.loom.com/sessions/thumbnails/1c8ee463a6da4f55ba6fa450618e3e2a-with-play.gif)](https://www.loom.com/share/1c8ee463a6da4f55ba6fa450618e3e2a)
 ## Built With
 
 - Ruby
