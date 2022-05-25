@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    categories = Category.includes(:purchases).all
+    @categories = categories.map do |category|
+      category.total = category.purchases.where(author: current_user).sum(:amount)
+      category
+    end
   end
 
   # GET /categories/1 or /categories/1.json
@@ -21,7 +25,7 @@ class CategoriesController < ApplicationController
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
-
+    @category.user_id = current_user.id
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
@@ -65,6 +69,6 @@ class CategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def category_params
-    params.require(:category).permit(:name, :icon, :user_id)
+    params.require(:category).permit(:name, :icon)
   end
 end
