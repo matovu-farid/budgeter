@@ -30,6 +30,12 @@ To run the tests, navigate to the root directory of this app and run
 ```ruby
 rspec spec
 ```
+## Deployment
+The app is deployed at this url
+[link](https://floating-meadow-12775.herokuapp.com/)
+```
+https://floating-meadow-12775.herokuapp.com/
+```
 
 ## Authors
 
