@@ -51,7 +51,7 @@ https://floating-meadow-12775.herokuapp.com/
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
+- Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 - Hat tip to Microverse
 
 
